@@ -19,9 +19,10 @@ def read_template(path):
     """
 
     try:
-        with open(path) as f:
-            file_content = f.read().strip()
-            print('\n', file_content, '\n')
-            return file_content
+        file = open(path)
+        file_content = file.read().strip()
+        print('\n', file_content, '\n')
+        file.close()
+        return file_content
     except:
         raise FileNotFoundError(f"({path}) was not found")
