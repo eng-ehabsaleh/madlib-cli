@@ -26,3 +26,12 @@ def read_template(path):
         return file_content
     except:
         raise FileNotFoundError(f"({path}) was not found")
+
+
+def parse_template(word):
+    """
+    parse function takes in string and search of curly bracies  and return list of curly prasies content found and the text without the content of curly prasies 
+    """
+    sympoles = list(re.findall(r'{(.*?)}', word))
+    text = re.sub('{.*?}', '{}', word)
+    return text, sympoles
